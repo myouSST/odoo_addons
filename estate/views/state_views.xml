@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <record id="action_estate_state" model="ir.actions.act_window">
+            <field name="name">Estate</field>
+            <field name="res_model">estate.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="estate.list">
+            <field name="name">estate list!!</field>
+            <field name="model">estate.type</field>
+            <field name="arch" type="xml">
+                <tree string="testtesttest">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>
