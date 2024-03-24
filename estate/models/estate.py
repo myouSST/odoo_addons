@@ -8,6 +8,7 @@ from odoo import fields, models, api, exceptions
 class EstateModel(models.Model):
     _name = "estate"
     _description = "estate models"
+    _order = "id desc"
 
     _sql_constraints = [
         ('check_expected_price', 'CHECK(expected_price >= 0)', 'The expected price cannot be negative.'),
@@ -43,6 +44,9 @@ class EstateModel(models.Model):
 
     total_area = fields.Float(compute="_compute_total_area")
     best_price = fields.Float(compute="_compute_best_price")
+
+    has_offer = fields.Boolean(compute="_compute_has_offer")
+    has_accepted_offer = fields.Boolean(compute="_compute_has_accepted_offer")
 
     @api.depends("living_area", "garden_area")
     def _compute_total_area(self):
@@ -82,3 +86,8 @@ class EstateModel(models.Model):
         for record in self:
             if record.selling_price < record.expected_price * 0.9:
                 raise exceptions.ValidationError("기대 금액의 90% 미만은 선택 할 수 없습니다.")
+
+    @api.depends('offer_ids')
+    def _compute_has_offer(self):
+        for record in self:
+            record.has_offer = bool(record.offer_ids)

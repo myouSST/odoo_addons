@@ -4,6 +4,7 @@ from dateutil.relativedelta import relativedelta
 class EstateOfferModel(models.Model):
     _name = 'estate.offer'
     _description = "estate offer models"
+    _order = "price desc"
 
 
     _sql_constraints = [

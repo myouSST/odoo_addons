@@ -1,18 +1,47 @@
 <odoo>
     <data>
         <record id="action_estate_state" model="ir.actions.act_window">
-            <field name="name">Estate</field>
+            <field name="name">Estate state</field>
             <field name="res_model">estate.type</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <record model="ir.ui.view" id="estate.list">
+        <record model="ir.ui.view" id="estate.type_list">
             <field name="name">estate list!!</field>
             <field name="model">estate.type</field>
             <field name="arch" type="xml">
-                <tree string="testtesttest">
-                    <field name="name"/>
+                <tree>
+                    <field name="name" string="wqoijqwiojdqwjioqwdjiowdjio" />
+                    <field name="description"/>
+                    <field name="sequence" widget="handle"/>
                 </tree>
+            </field>
+        </record>
+
+
+        <record id="estate_type_view_form" model="ir.ui.view">
+            <field name="model">estate.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </h1>
+
+                        <notebook>
+                            <page string="Estate">
+                                <field name="estate_ids" widget="one2many">
+                                    <tree string="Values">
+                                        <field name="name" string="Title"/>
+                                        <field name="expected_price"/>
+                                        <field name="status"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
             </field>
         </record>
     </data>

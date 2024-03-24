@@ -6,7 +6,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <record model="ir.ui.view" id="estate.list">
+        <record model="ir.ui.view" id="estate.tag_list">
             <field name="name">estate list!!</field>
             <field name="model">estate.tag</field>
             <field name="arch" type="xml">
