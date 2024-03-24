@@ -24,12 +24,14 @@
             <field name="name">estate list!!</field>
             <field name="model">estate</field>
             <field name="arch" type="xml">
-                <tree decoration-success="offer_ids != False" decoration-bf="offer_ids != False">
+                <tree decoration-muted="status == 'sold'" decoration-success="has_offer == True" decoration-bf="has_accepted_offer == True"  >
                     <field name="name"/>
                     <field name="description"/>
                     <field name="postcode"/>
                     <field name="date_availability"/>
-                    <field name="offer_ids" invisible="1"/>
+                    <field name="status"/>
+                    <field name="has_offer" invisible="1"/>
+                    <field name="has_accepted_offer" invisible="True"/>
                 </tree>
             </field>
         </record>
@@ -79,14 +81,14 @@
 
                                 <page string="Offers">
                                     <field name="offer_ids" widget="one2many">
-                                        <tree string="Values">
+                                        <tree >
                                             <field name="price"/>
                                             <field name="partner_id"/>
                                             <field name="validity" string="Validity (days)"/>
                                             <field name="date_deadline" string="Deadline"/>
 
-                                            <button name="action_accept" type="object" icon="fa-check" invisible="status != ''" />
-                                            <button name="action_refuse" type="object" icon="fa-times" invisible="status != ''" />
+                                            <button name="action_accept" type="object" title="Accept" icon="fa-check" invisible="status != False" />
+                                            <button name="action_refuse" type="object" title="Refuse" icon="fa-times" invisible="status != False" />
                                             <field name="status"/>
                                         </tree>
                                     </field>

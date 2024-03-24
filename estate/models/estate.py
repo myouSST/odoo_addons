@@ -91,3 +91,8 @@ class EstateModel(models.Model):
     def _compute_has_offer(self):
         for record in self:
             record.has_offer = bool(record.offer_ids)
+
+    @api.depends('offer_ids')
+    def _compute_has_accepted_offer(self):
+        for record in self:
+            record.has_accepted_offer = any(offer.status == "accepted" for offer in record.offer_ids)
