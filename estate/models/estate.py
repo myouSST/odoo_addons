@@ -2,12 +2,17 @@ from datetime import date
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import fields, models, api
+from odoo import fields, models, api, exceptions
 
 
 class EstateModel(models.Model):
     _name = "estate"
     _description = "estate models"
+
+    _sql_constraints = [
+        ('check_expected_price', 'CHECK(expected_price >= 0)', 'The expected price cannot be negative.'),
+        ('check_selling_price', 'CHECK(selling_price >= 0)', 'The selling price cannot be negative.'),
+    ]
 
     name = fields.Char(required=True)
     description = fields.Text()
@@ -58,3 +63,22 @@ class EstateModel(models.Model):
         else:
             self.garden_area = 0
             self.garden_orientation = False
+
+    def sold_action(self):
+        for record in self:
+            if record.status == 'canceled':
+                raise exceptions.UserError("The status cannot be 'cancelled'.")
+
+            record.status = 'sold'
+        return True
+
+    def cancel_action(self):
+        for record in self:
+            record.status = 'canceled'
+        return True
+
+    @api.constrains('selling_price')
+    def _check_selling_price(self):
+        for record in self:
+            if record.selling_price < record.expected_price * 0.9:
+                raise exceptions.ValidationError("기대 금액의 90% 미만은 선택 할 수 없습니다.")

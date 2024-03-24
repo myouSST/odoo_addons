@@ -37,6 +37,12 @@
             <field name="model">estate</field>
             <field name="arch" type="xml">
                 <form String="My new house ">
+
+                    <header>
+                        <button class="btn-primary" name="sold_action" type="object" string="SOLD" />
+                        <button name="cancel_action" type="object" string="CANCEL" />
+                    </header>
+
                     <sheet>
                         <h1>
                             <field name="name"/>
@@ -75,9 +81,12 @@
                                         <tree string="Values">
                                             <field name="price"/>
                                             <field name="partner_id"/>
-                                            <field name="status"/>
                                             <field name="validity" string="Validity (days)"/>
                                             <field name="date_deadline" string="Deadline"/>
+
+                                            <button name="action_accept" string="Accept"  type="object" icon="fa-check"/>
+                                            <button name="action_refuse" string="Cancel"  type="object" icon="fa-times"/>
+                                            <field name="status"/>
                                         </tree>
                                     </field>
                                 </page>
@@ -94,32 +103,6 @@
                 </form>
             </field>
         </record>
-
-
-        <!--     <form string="Lost Reason">
-                 <sheet>
-                     <div class="oe_button_box" name="button_box">
-                         <button name="action_lost_leads" type="object"
-                                 class="oe_stat_button" icon="fa-star">
-                             <div class="o_stat_info">
-                                 <field name="leads_count" class="o_stat_value"/>
-                                 <span class="o_stat_text"> Leads</span>
-                             </div>
-                         </button>
-                     </div>
-                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
-                     <div class="oe_title">
-                         <div class="oe_edit_only">
-                             <label for="name"/>
-                         </div>
-                         <h1 class="mb32">
-                             <field name="name" class="mb16"/>
-                         </h1>
-                         <field name="active" invisible="1"/>
-                     </div>
-                 </sheet>
-             </form>-->
-
 
         <record id="action_estate" model="ir.actions.act_window">
             <field name="name">Estate</field>
