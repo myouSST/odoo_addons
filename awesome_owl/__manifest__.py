@@ -25,11 +25,11 @@
     'installable': True,
     'data': [
         'views/templates.xml',
-        # 'views/awesome_owl.xml',
+        'views/awesome_owl.xml',
     ],
     'assets': {
         'web.assets_backend': [
-            # 'awesome_owl/static/src/**/*',
+            'awesome_owl/static/src/**/*',
         ],
         'awesome_owl.assets_playground': [
             # bootstrap
