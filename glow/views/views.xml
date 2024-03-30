@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+        <record id="action_glow" model="ir.actions.act_window">
+            <field name="name">Glow</field>
+            <field name="res_model">glow</field>
+            <field name="view_mode">kanban,form</field>
+        </record>
+
+        <record id="view_glow_form" model="ir.ui.view">
+            <field name="name">glow.form</field>
+            <field name="model">glow</field>
+            <field name="arch" type="xml">
+                <form string="Glow">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="group_id"/>
+                            <field name="switch" widget="boolean_toggle"     options="{'autosave': False}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_glow_kanban" model="ir.ui.view">
+            <field name="name">glow.kanban</field>
+            <field name="model">glow</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile"  sortable="1" default_group_by="group_id">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="switch"/>
+                    <field name="group_id" />
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card">
+                                <a type="open">
+                                    <div class="oe_kanban_content">
+                                        <strong style="font-size: 2em;">
+                                            <t t-esc="record.name.value"/>
+                                        </strong>
+                                        <p>
+                                            <t t-esc="record.description.value"/>
+                                        </p>
+
+
+                                        <div class="switch">
+                                            <t t-if="record.switch.raw_value">
+                                                <i class="fa fa-toggle-on text-success" aria-hidden="true" title="switch on"/>
+                                            </t>
+                                            <t t-if="!record.switch.raw_value">
+                                                <i class="fa fa-toggle-off text-muted" aria-hidden="true" title="switch off"/>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+    </data>
+</odoo>

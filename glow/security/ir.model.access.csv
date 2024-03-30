@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+glow.access_glow,access_glow,glow.model_glow,base.group_user,1,1,1,1
+glow.access_glow_group,access_glow_group,glow.model_glow_group,base.group_user,1,1,1,1

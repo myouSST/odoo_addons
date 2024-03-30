@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--
+        <record id="action_glow" model="ir.actions.client">
+            <field name="name">glow</field>
+            <field name="tag">glow.playground</field>
+            <field name="target">main</field>
+        </record>
+
+        <menuitem id="menu_glow" name="glow" action="action_glow"/>-->
+
+
+        <menuitem id="menu_glow" name="glow" action="action_glow"/>
+    </data>
+</odoo>
+
