@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="glow.KanbanHeader" t-inherit="web.KanbanHeader" t-inherit-mode="primary">
+        <xpath expr="//div[hasclass('o_kanban_header_title')]" position="after">
+            <div class="d-flex gap-2 pt-2 pb-2">
+                <button class="w-100 btn btn-success" t-on-click="switchOnAll">모두 켜기</button>
+                <button class="w-100 btn btn-primary" t-on-click="switchOffAll">모두 끄기</button>
+            </div>
+        </xpath>
+    </t>
+</templates>

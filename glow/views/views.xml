@@ -16,7 +16,7 @@
                             <field name="name"/>
                             <field name="description"/>
                             <field name="group_id"/>
-                            <field name="switch" widget="boolean_toggle"     options="{'autosave': False}"/>
+                            <field name="switch" widget="boolean_toggle" options="{'autosave': False}"/>
                         </group>
                     </sheet>
                 </form>
@@ -27,11 +27,14 @@
             <field name="name">glow.kanban</field>
             <field name="model">glow</field>
             <field name="arch" type="xml">
-                <kanban class="o_kanban_mobile"  sortable="1" default_group_by="group_id">
+                <kanban class="o_kanban_mobile" sortable="1" default_group_by="group_id" js_class="glow_kanban">
                     <field name="name"/>
                     <field name="description"/>
                     <field name="switch"/>
-                    <field name="group_id" />
+                    <field name="group_id"/>
+                    <field name="status"/>
+
+                    <progressbar field="status" colors='{"on": "success", "off": "secondary"}'/>
 
                     <templates>
                         <t t-name="kanban-box">
@@ -48,10 +51,12 @@
 
                                         <div class="switch">
                                             <t t-if="record.switch.raw_value">
-                                                <i class="fa fa-toggle-on text-success" aria-hidden="true" title="switch on"/>
+                                                <i class="fa fa-toggle-on text-success" aria-hidden="true"
+                                                   title="switch on"/>
                                             </t>
                                             <t t-if="!record.switch.raw_value">
-                                                <i class="fa fa-toggle-off text-muted" aria-hidden="true" title="switch off"/>
+                                                <i class="fa fa-toggle-off text-muted" aria-hidden="true"
+                                                   title="switch off"/>
                                             </t>
                                         </div>
                                     </div>
