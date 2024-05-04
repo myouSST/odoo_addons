@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+        <template id="light_controller.playground" name="Awesome T-Shirt thank you">
+            <link type="image/x-icon" rel="shortcut icon" href="/web/static/img/favicon.ico"/>
+            <t t-call-assets="light_controller.assets_playground"/>
+        </template>
+    </data>
+</odoo>

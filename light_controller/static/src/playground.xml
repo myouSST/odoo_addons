@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="light_controller.playground">
+        <div class="p-3 d-flex gap-3 flex-column">
+            <div>
+                <p style="font-size: 1.5em; font-weight:bold; margin-bottom: 0" >조명 제어</p>
+                <p class="" >지역별로 관리되는 조명을 켜고 끕니다. 해당 지역 상단의 스위치 선택시 전체 끄기/켜기가 진행됩니다.</p>
+            </div>
+            <div class="d-flex gap-3">
+                <t t-foreach="groupedSwitchData" t-as="section" t-key="section">
+                    <Panel title="section" width="'20%'" switches="groupedSwitchData[section]"/>
+                </t>
+            </div>
+            <Paper width="'100%'">
+                <div style="width:100%;">
+
+                </div>
+            </Paper>
+        </div>
+    </t>
+</templates>
+

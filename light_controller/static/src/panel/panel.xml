@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="light_controller.Panel">
+        <Paper width="props.width" height="props.height">
+            <div class="d-flex gap-1 align-items-center justify-content-between panel-header" t-on-click="toggleAllSwitches">
+                <div class="d-flex gap-1 align-items-center">
+                    <i t-if="state.allOff " t-attf-class="fa fa-moon-o" style="font-size:1.5em"/>
+                    <i t-if="!state.allOff " t-attf-class="fa fa-sun-o" style="font-size:1.5em"/>
+                    <h6 t-out="props.title" class="mb-0" style="font-weight:bold;" t-if="props.title"  />
+                </div>
+                <Switch checked="!state.allOff" onChange.bind="toggleAllSwitches"  />
+            </div>
+
+            <div style="height: 1px; background-color: #ccc; margin: 10px 0 20px 0;" t-if="props.title" />
+
+            <div class="d-flex flex-wrap gap-4">
+                <t t-foreach="switches" t-as="switch" t-key="switch.id">
+                    <Switch title="switch.title" checked="switch.checked" onChange.bind="toggleSwitch.bind(this, switch_index)" />
+                </t>
+            </div>
+        </Paper>
+    </t>
+</templates>
+

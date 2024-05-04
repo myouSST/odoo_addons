@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="light_controller.Switch">
+        <div class="d-flex flex-column align-items-center gap-1">
+            <h6 t-if="props.title" class="switch-label" t-out="props.title" t-on-click="toggle" />
+            <label class="switch">
+                <input type="checkbox" t-att-checked="props.checked ? 'checked' : undefined" t-on-click="toggle"/>
+                <span class="slider round" />
+            </label>
+        </div>
+    </t>
+</templates>
