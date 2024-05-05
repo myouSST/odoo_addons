@@ -12,10 +12,11 @@
                     <Panel title="section" width="'20%'" switches="groupedSwitchData[section]"/>
                 </t>
             </div>
-            <Paper width="'100%'">
-                <div style="width:100%;">
 
-                </div>
+
+
+            <Paper width="'100%'">
+                <ThreeDComponent />
             </Paper>
         </div>
     </t>

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Moccasin Run Golf Course
+* source:	https://sketchfab.com/3d-models/moccasin-run-golf-course-92cf885a8bab46cfbdf9ef1b1c0a8783
+* author:	myparadisepilot (https://sketchfab.com/myparadisepilot)
+
+Model License:
+* license type:	CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions can not be distributed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Moccasin Run Golf Course" (https://sketchfab.com/3d-models/moccasin-run-golf-course-92cf885a8bab46cfbdf9ef1b1c0a8783) by myparadisepilot (https://sketchfab.com/myparadisepilot) licensed under CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)

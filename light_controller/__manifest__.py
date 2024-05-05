@@ -30,6 +30,8 @@
     'assets': {
         'web.assets_backend': [
             'light_controller/static/src/**/*',
+            'light_controller/static/lib/**/*',
+            'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.1/three.min.js'
         ],
         'light_controller.assets_playground': [
             # bootstrap

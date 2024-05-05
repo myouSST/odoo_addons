@@ -5,6 +5,7 @@ import { Panel } from "./panel/panel";
 import { Switch } from "./switch/switch";
 import { registry } from "@web/core/registry";
 import { Paper } from "./paper/paper";
+import { ThreeDComponent } from "./threejs/threejs";
 
 const switchData =
     [
@@ -35,7 +36,7 @@ const switchData =
 
 export class Playground extends Component {
     static template = "light_controller.playground";
-    static components = {Panel, Switch, Paper};
+    static components = {Panel, Switch, Paper, ThreeDComponent};
 
     setup() {
         this.sum = useState({value: 0});
