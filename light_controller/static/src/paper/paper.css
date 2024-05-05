@@ -1,0 +1,8 @@
+.clickable-paper {
+    transition: all 0.2s ease; /* 부드러운 전환 효과 */
+}
+
+.clickable-paper:hover {
+    transform: scale(1.04); /* 확대 효과 */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); /* 그림자 효과 */
+}

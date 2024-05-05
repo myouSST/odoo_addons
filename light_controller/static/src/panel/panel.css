@@ -1,4 +1,15 @@
-.panel-header{
-    padding: 10px 0 10px 0;
+.panel-title:hover{
     cursor: pointer;
+}
+
+.edit-icon {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
+    padding-left: 5px;
+}
+
+.paper-root:hover .edit-icon {
+    visibility: visible;
+    opacity: 1;
 }

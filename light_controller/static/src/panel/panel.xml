@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
     <t t-name="light_controller.Panel">
-        <Paper width="props.width" height="props.height">
-            <div class="d-flex gap-1 align-items-center justify-content-between panel-header" t-on-click="toggleAllSwitches">
-                <div class="d-flex gap-1 align-items-center">
-                    <i t-if="state.allOff " t-attf-class="fa fa-moon-o" style="font-size:1.5em"/>
-                    <i t-if="!state.allOff " t-attf-class="fa fa-sun-o" style="font-size:1.5em"/>
+        <Paper width="props.width" height="props.height" clickable="true">
+            <div class="d-flex gap-1 align-items-center justify-content-between" style="padding: 10px 0 10px 0">
+                <div class="d-flex gap-1 align-items-center panel-title"  t-on-click="handleEdit">
                     <h6 t-out="props.title" class="mb-0" style="font-weight:bold;" t-if="props.title"  />
+                    <i t-attf-class="fa fa-pencil edit-icon" />
                 </div>
-                <Switch checked="!state.allOff" onChange.bind="toggleAllSwitches"  />
+
+                <div class="cursor-pointer d-flex gap-2 align-items-center" t-on-click="toggleAllSwitches" >
+                    <i t-if="state.allOff " t-attf-class="fa fa-moon-o" style="font-size:1.3em"  />
+                    <i t-if="!state.allOff " t-attf-class="fa fa-sun-o" style="font-size:1.3em"/>
+                    <Switch checked="!state.allOff"  />
+                </div>
             </div>
 
             <div style="height: 1px; background-color: #ccc; margin: 10px 0 20px 0;" t-if="props.title" />

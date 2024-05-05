@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
     <t t-name="light_controller.Paper">
-        <div class="shadow p-4" style="" t-att-style="'width:' + props.width + ';height:' + props.height + ';' + 'border-radius:18px;'">
+    <div t-att-class=" {
+                'shadow p-4 paper-root' : true,
+                'clickable-paper': props.onClick || props.clickable
+            }"
+             t-att-style="'width:' + props.width + ';height:' + props.height + ';' + 'border-radius:18px; min-width:200px;'"
+             t-on-click="handleClick">
              <t t-slot="default"/>
         </div>
     </t>

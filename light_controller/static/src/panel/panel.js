@@ -1,12 +1,15 @@
 /** @odoo-module **/
 
-import { Component, useEffect, useState } from "@odoo/owl";
+import { Component, useEffect, useState, useSubEnv } from "@odoo/owl";
 import { Paper } from "../paper/paper";
 import { Switch } from "../switch/switch";
+import { getDefaultConfig } from "@web/views/view";
+import { PanelDialog } from "./panel_dialog";
+
 
 export class Panel extends Component {
     static template = "light_controller.Panel";
-    static components = {Paper, Switch};
+    static components = {Paper, Switch, };
     static props = {
         title: String,
         width: String,
@@ -25,6 +28,12 @@ export class Panel extends Component {
             this.state.allOff = this.switches.every(s => !s.checked);
         }, () => this.switches.map(s => s.checked));
 
+        useSubEnv({
+            config: {
+                ...getDefaultConfig(),
+                ...this.env.config,
+            }
+        });
     }
 
     toggleAllSwitches() {
@@ -35,6 +44,22 @@ export class Panel extends Component {
 
     toggleSwitch(index) {
         this.switches[index].checked = !this.switches[index].checked;
+    }
+
+    handleEdit() {
+        const dialog = this.env.services.dialog
+
+        dialog.add(PanelDialog, {
+            confirmText: "예",
+            prompt:  "조명의 자동 제어 스케줄을 설정합니다.",
+            size: "md",
+            title: this.props.title,
+            onConfirm: () => {
+                console.log('qwdqd')
+            },
+            }
+        );
+
     }
 }
 

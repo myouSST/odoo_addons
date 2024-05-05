@@ -8,5 +8,11 @@ export class Paper extends Component {
         title: String,
         width: String,
         height: String,
+        onClick: {type: Function, optional: true},
+        clickable: Boolean,
     };
+
+    handleClick(e) {
+        this.props.onClick && this.props.onClick();
+    }
 }
